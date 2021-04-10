@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+# Just a little helper script so you have an executable in the top-level dir.
+
+local binDir=app/build/install/ka/bin/
+(
+    if test ! -d $binDir; then gradle build; fi
+    cd $binDir
+    ./ka
+)
+
+
