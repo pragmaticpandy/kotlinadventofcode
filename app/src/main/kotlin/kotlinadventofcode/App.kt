@@ -3,13 +3,35 @@
  */
 package kotlinadventofcode
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
+import picocli.CommandLine
+import picocli.CommandLine.Command
+import picocli.CommandLine.Option
+import picocli.CommandLine.Parameters
+
+import java.io.File
+import java.math.BigInteger
+import java.nio.file.Files
+import java.security.MessageDigest
+import java.util.concurrent.Callable
+import kotlin.system.exitProcess
+
+@Command(
+    name = "ka",
+    description = ["Runs Kotlin Advent of Code solutions."]
+)
+class App : Callable<Int> {
+
+    @Parameters(
+        index = "0",
+        arity = "0..1",
+        description = ["The day to run. Defaults to the last defined: \${DEFAULT-VALUE}. All: \${COMPLETION-CANDIDATES}"]
+    )
+    var problem: Problem = Problem.values().maxOrNull() ?: throw Exception("No instances defined in Problem enum.")
+
+    override fun call(): Int {
+        println(problem.run())
+        return 0
+    }
 }
 
-fun main() {
-    println(App().greeting)
-}
+fun main(args: Array<String>): Unit = exitProcess(CommandLine(App()).execute(*args))

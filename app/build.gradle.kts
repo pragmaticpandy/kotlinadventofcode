@@ -26,10 +26,7 @@ dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    // This dependency is used by the application.
-    implementation("com.google.guava:guava:29.0-jre")
-
-    implementation("org.koin:koin-core:2.2.2")
+    implementation("info.picocli:picocli:4.6.1")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
