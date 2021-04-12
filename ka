@@ -6,7 +6,7 @@ local binDir=app/build/install/ka/bin/
 (
     if test ! -d $binDir; then gradle build; fi
     cd $binDir
-    ./ka
+    ./ka $@
 )
 
 

@@ -17,7 +17,8 @@ import kotlin.system.exitProcess
 
 @Command(
     name = "ka",
-    description = ["Runs Kotlin Advent of Code solutions."]
+    description = ["Runs Kotlin Advent of Code solutions."],
+    subcommands = [ Continue::class ]
 )
 class App : Callable<Int> {
 
@@ -27,6 +28,9 @@ class App : Callable<Int> {
         description = ["The day to run. Defaults to the last defined: \${DEFAULT-VALUE}. All: \${COMPLETION-CANDIDATES}"]
     )
     var problem: Problem = Problem.values().maxOrNull() ?: throw Exception("No instances defined in Problem enum.")
+
+    @Option(names = ["--help", "-h"], usageHelp = true, hidden = true)
+    var help = false
 
     override fun call(): Int {
         println(problem.run())
