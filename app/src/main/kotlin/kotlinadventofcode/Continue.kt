@@ -62,19 +62,24 @@ class Continue(val codeDAO: CodeDAO = CodeDAO()): Callable<Int> {
             )
 
             println("Done. See the new file for that day to get started.")
-        } else if (!state.partOneTested && !state.partTwoTested) {
+        } else {
+            val part: Int = if (!state.partOneTested && !state.partTwoTested) 1 else 2
             print(
                 """
-                    After verifying your $latestYear day $latestDay part 1 solution on the Advent of
+                    After verifying your $latestYear day $latestDay part $part solution on the Advent of
                     Code site, enter it here: 
                 """.trimIndent())
 
             val input: String = readLine() ?: "" // If input is file and we reach the end.
             if (input == "") throw Exception("Nothing was entered or the input file was empty.")
 
-            codeDAO.generateTest(ProblemId(DayId(latestYear, latestDay), 1), input)
+            codeDAO.generateTest(ProblemId(DayId(latestYear, latestDay), part), input)
 
-            println("Done. Good luck on part 2.")
+            val farewell: String =
+                if (part == 1) "Good luck on part 2."
+                else "Run `./ka continue` again to start the next day."
+
+            println("Done. $farewell")
         }
 
         return 0

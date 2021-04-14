@@ -8,22 +8,30 @@ class `2015-02` : Day {
 
     data class Box(val l: Int, val w: Int, val h: Int) {
         val paperRequired: Int get() {
-            return (2*l*w) + (2*w*h) + (2*h*l) + min(l*w,min(w*h,h*l))
+            return 2*l*w + 2*w*h + 2*h*l + setOf(l*w, w*h, h*l).minOrNull()!!
+        }
+
+        val ribbonRequried: Int get() {
+            return setOf(2*l + 2*w, 2*w + 2*h, 2*h + 2*l).minOrNull()!! + l*w*h
         }
     }
 
     override fun runPart1(input: String): String {
+        return parseBoxes(input).sumBy { it.paperRequired }.toString()
+    }
+
+    override fun runPart2(input: String): String {
+        return parseBoxes(input).sumBy { it.ribbonRequried }.toString()
+    }
+
+    private fun parseBoxes(input: String): List<Box> {
         val boxes: MutableList<Box> = mutableListOf()
         for (line: String in input.lines()) {
             val dimensions: List<Int> = line.split('x').map { it.toInt() }
             boxes += Box(dimensions[0], dimensions[1], dimensions[2])
         }
 
-        return boxes.sumBy { it.paperRequired }.toString()
-    }
-
-    override fun runPart2(input: String): String {
-        throw Exception("2015 day 02 part 2 isn't yet implemented.")
+        return boxes
     }
 
     override val defaultInput = """3x11x24

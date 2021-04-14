@@ -108,13 +108,16 @@ class CodeDAO(
     }
 
     fun generateTest(problemId: ProblemId, expected: String) {
+        val testFilePath: Path =
+            testSrcPath
+                .resolve(problemId.year.toString())
+                .resolve("${problemId.year}-${dayToString(problemId.day)}-Test.kt")
+
         if (problemId.part == 1) {
 
             // Write the new test file.
             Files.write(
-                testSrcPath
-                    .resolve(problemId.year.toString())
-                    .resolve("${problemId.year}-${dayToString(problemId.day)}-Test.kt"),
+                testFilePath,
                 testTemplate
                     .replace(yearKey, problemId.year.toString())
                     .replace(dayKey, dayToString(problemId.day))
@@ -136,6 +139,19 @@ class CodeDAO(
                     .joinToString("\n")
                     .toByteArray()
             )
+        } else {
+            Files.write(
+                testFilePath,
+                Files
+                    .readAllLines(testFilePath, UTF_8)
+                    .map {
+                        it.replace(
+                            "    // DO NOT DELETE. I'm yet another code generation helper comment.",
+                            """
+    @Test fun testDefaultPart2() {
+        assertEquals("$expected", `${problemId.year}-${dayToString(problemId.day)}`().runPart2())
+    }
+                            """.trimMargin())})
         }
     }
 

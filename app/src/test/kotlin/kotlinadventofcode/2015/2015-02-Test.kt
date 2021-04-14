@@ -10,5 +10,7 @@ class `2015-02-Test` {
         assertEquals("1588178", `2015-02`().runPart1())
     }
 
-    // DO NOT DELETE. I'm yet another code generation helper comment.
+    @Test fun testDefaultPart2() {
+        assertEquals("3783758", `2015-02`().runPart2())
+    }
 }
