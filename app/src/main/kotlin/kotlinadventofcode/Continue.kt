@@ -46,8 +46,8 @@ class Continue(val codeDAO: CodeDAO = CodeDAO()): Callable<Int> {
 
             print(
                 """
-                    Enter problem input (won't work for inputs with blank lines in between stuff—in
-                    this case just put whatever for now and edit the generated file afterwards):
+                    Enter problem input (won't work for some inputs, such as blank lines mid-input—
+                    in these cases just put whatever for now and edit the generated file afterwards): 
                 """.trimIndent())
 
             val inputLines: MutableList<String> = mutableListOf()
