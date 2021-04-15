@@ -12,8 +12,7 @@ import java.security.MessageDigest
 import java.util.concurrent.Callable
 import kotlin.system.exitProcess
 
-const val description = """Generates boilerplate code for the next problem and/or a test for the current.
-
+const val longDescription = """
 This command helps you manage a basic state machine for solving problems sequentially.
 
 When starting a new day, you'll be prompted REPL-style for the problem year, day, and input; and then an implementation file will be generated. Part 1 for this day will now be the default executed problem when you run `ka`.
@@ -27,7 +26,7 @@ Rinse—err, commit—and repeat.
 
 @Command(
     name = "continue",
-    description = [description],
+    description = [ "Generates boilerplate code and tests.", longDescription ]
 )
 class Continue(val codeDAO: CodeDAO = CodeDAO()): Callable<Int> {
 
