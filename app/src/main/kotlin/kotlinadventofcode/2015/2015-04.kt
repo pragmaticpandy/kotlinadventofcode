@@ -29,7 +29,13 @@ class `2015-04` : Day {
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
     override fun runPart2(input: String): String {
-        throw Exception("2015 day 04 part 2 isn't yet implemented.")
+        var decimal: Int = 0
+        do {
+            decimal++
+            val md5: String = md5(input + decimal.toString())
+        } while (md5.subSequence(0, 6) != "000000")
+
+        return decimal.toString()
     }
 
     override val defaultInput = """ckczppom"""
