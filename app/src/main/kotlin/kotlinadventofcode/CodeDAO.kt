@@ -71,12 +71,17 @@ class CodeDAO(
 
     fun generateProblem(problemId: ProblemId, input: String) {
 
+        val implPath =
+            mainSrcPath
+                .resolve(problemId.year.toString())
+                .resolve("${problemId.year}-${dayToString(problemId.day)}.kt")
+
+        Files.createDirectories(implPath.parent)
+
         // Write the new impl file.
         if (problemId.part == 1) {
             Files.write(
-                mainSrcPath
-                    .resolve(problemId.year.toString())
-                    .resolve("${problemId.year}-${dayToString(problemId.day)}.kt"),
+                implPath,
                 implTemplate
                     .replace(yearKey, problemId.year.toString())
                     .replace(dayKey, dayToString(problemId.day))
@@ -112,6 +117,8 @@ class CodeDAO(
             testSrcPath
                 .resolve(problemId.year.toString())
                 .resolve("${problemId.year}-${dayToString(problemId.day)}-Test.kt")
+
+        Files.createDirectories(testFilePath.parent)
 
         if (problemId.part == 1) {
 

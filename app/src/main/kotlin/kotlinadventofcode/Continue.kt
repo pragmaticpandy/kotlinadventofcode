@@ -12,11 +12,27 @@ import java.security.MessageDigest
 import java.util.concurrent.Callable
 import kotlin.system.exitProcess
 
+const val description = """Generates boilerplate code for the next problem and/or a test for the current.
+
+This command helps you manage a basic state machine for solving problems sequentially.
+
+When starting a new day, you'll be prompted REPL-style for the problem year, day, and input; and then an implementation file will be generated. Part 1 for this day will now be the default executed problem when you run `ka`.
+
+After you implement part 1 and successfully validate that your solution is correct on the AoC site, run this command again and you will be prompted for your answer. With that solution, a test will be generated for your input and solution. Also, part 2 will now be the default executed problem when you run `ka`.
+
+After you implement part 2 and successfully validate that your solution is correct on the AoC site, run this command again and you will be prompted for your solution. With that, a test will be generated for your input and solution.
+
+Rinse—err, commit—and repeat.
+"""
+
 @Command(
     name = "continue",
-    description = ["Generates the scaffolding for the next problem."],
+    description = [description],
 )
 class Continue(val codeDAO: CodeDAO = CodeDAO()): Callable<Int> {
+
+    @Option(names = ["--help", "-h"], usageHelp = true, hidden = true)
+    var help = false
 
     override fun call(): Int {
         val state = codeDAO.getState()
@@ -66,8 +82,8 @@ class Continue(val codeDAO: CodeDAO = CodeDAO()): Callable<Int> {
             val part: Int = if (!state.partOneTested && !state.partTwoTested) 1 else 2
             print(
                 """
-                    After verifying your $latestYear day $latestDay part $part solution on the Advent of
-                    Code site, enter it here: 
+                    After verifying your $latestYear day $latestDay part $part solution on the
+                    Advent of Code site, enter it here: 
                 """.trimIndent())
 
             val input: String = readLine() ?: "" // If input is file and we reach the end.
