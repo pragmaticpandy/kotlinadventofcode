@@ -9,7 +9,9 @@ implementations.
 
 I logged into Advent with GitHub.
 
-`gradle build` to build
+`gradle assemble` to build but not test (tests will add up and start taking a long time).
+
+`gradle build` to build and test
 
 `./ka --help` (Kotlin Advent) to run. More info in help text.
 

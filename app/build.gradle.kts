@@ -41,5 +41,9 @@ application {
     applicationName = "ka"
 }
 
+tasks.test {
+    maxHeapSize = "16G"
+}
+
 // Install ka CLI in app/build/install/ka
 tasks.build { finalizedBy(tasks.installDist) }
