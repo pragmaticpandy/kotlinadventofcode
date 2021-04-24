@@ -8,7 +8,13 @@ import kotlin.text.isDigit
 
 class `2015-06` : Day {
 
-    data class Light(val x: Int, val y: Int)
+    data class Light(val x: Int, val y: Int) {
+        operator fun rangeTo(end: Light): Set<Light> {
+            val result: MutableSet<Light> = mutableSetOf()
+            for (x in x..end.x) for (y in y..end.y) result += Light(x, y)
+            return result
+        }
+    }
 
     enum class Instruction {
         ON, OFF, TOGGLE;
@@ -30,18 +36,9 @@ class `2015-06` : Day {
         val coords = trimmedString.split(" through ")
         val coord1 = coords[0].split(",")
         val coord2 = coords[1].split(",")
-        val startX: Int = coord1[0].toInt()
-        val startY: Int = coord1[1].toInt()
-        val endX: Int = coord2[0].toInt()
-        val endY: Int = coord2[1].toInt()
-        val lights: MutableSet<Light> = mutableSetOf()
-        for (x in startX..endX) {
-            for (y in startY..endY) {
-                lights.add(Light(x, y))
-            }
-        }
-
-        return InstructionForRange(Instruction.parse(instruction), lights)
+        val startLight = Light(coord1[0].toInt(), coord1[1].toInt())
+        val endLight = Light(coord2[0].toInt(), coord2[1].toInt())
+        return InstructionForRange(Instruction.parse(instruction), startLight..endLight)
     }
 
     data class InstructionForRange(val instruction: Instruction, val range: Set<Light>)
