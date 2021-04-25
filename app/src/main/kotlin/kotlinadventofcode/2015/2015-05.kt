@@ -33,7 +33,7 @@ class `2015-05` : Day {
         private val naughtyStrings: Set<String> = setOf("ab", "cd", "pq", "xy")
         val devoidOfNaughtyStrings: Boolean get() {
             for (naughtyString: String in naughtyStrings) {
-                if (s.contains(naughtyString)) return false
+                if (naughtyString in s) return false
             }
 
             return true
@@ -53,7 +53,7 @@ class `2015-05` : Day {
         val containsRepeatingPairTwice: Boolean get() {
             for (i in 0..s.length-2) {
                 val pair: String = s.substring(i, i+2)
-                if (s.substring(0, i).contains(pair) || s.substring(i + 2, s.length).contains(pair)) {
+                if (pair in s.substring(0, i) || pair in s.substring(i + 2, s.length)) {
                     return true
                 }
             }

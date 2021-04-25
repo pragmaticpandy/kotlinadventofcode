@@ -52,7 +52,7 @@ class `2015-06` : Day {
             when (it.instruction) {
                 ON -> litLights += it.range
                 OFF -> litLights -= it.range
-                TOGGLE -> it.range.forEach { if (litLights.contains(it)) litLights -= it else litLights += it }
+                TOGGLE -> it.range.forEach { if (it in litLights) litLights -= it else litLights += it }
             }
         }
 
