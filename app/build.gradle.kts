@@ -28,6 +28,8 @@ dependencies {
 
     implementation("info.picocli:picocli:4.6.1")
 
+    implementation("com.github.h0tk3y.betterParse:better-parse:0.4.2")
+
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 
@@ -43,6 +45,7 @@ application {
 
 tasks.test {
     maxHeapSize = "16G"
+    maxParallelForks = Runtime.getRuntime().availableProcessors()
 }
 
 // Install ka CLI in app/build/install/ka
