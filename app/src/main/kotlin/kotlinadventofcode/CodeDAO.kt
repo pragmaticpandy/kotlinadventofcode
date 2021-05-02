@@ -217,6 +217,14 @@ import kotlin.test.assertNotNull
 
 class `$yearKey-$dayKey-Test` {
 
+    private infix fun String.when1runsWith(input: String) {
+        assertEquals(this, `$yearKey-$dayKey`().runPart1(input))
+    }
+
+    private infix fun String.when2runsWith(input: String) {
+        assertEquals(this, `$yearKey-$dayKey`().runPart2(input))
+    }
+
     $testPart1PlaceholderComment
 
     $testPart2PlaceholderComment
