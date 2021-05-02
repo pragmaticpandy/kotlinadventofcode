@@ -23,8 +23,8 @@ I logged into Advent with GitHub.
 
 If you've forked this and want to write your own implementations, delete all the `YYYY-DD*`
 implementation files except one, and similarly all the test files except one. Rename the classes you
-kept to the day you want to start with. Put your own AoC input in the implementation file and the
-following somewhere in the test class body:
+kept to the day you want to start with. Put your own AoC input in the implementation file and put
+the following somewhere in the test class body:
 ```kotlin
 
     // DO NOT DELETE. Part 1 placeholder. To populate, verify solution on AoC then `./ka continue`

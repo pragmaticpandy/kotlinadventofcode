@@ -30,6 +30,8 @@ dependencies {
 
     implementation("com.github.h0tk3y.betterParse:better-parse:0.4.2")
 
+    implementation("com.beust:klaxon:5.5")
+
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 
