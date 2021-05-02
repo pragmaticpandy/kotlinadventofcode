@@ -9,9 +9,11 @@ implementations.
 
 I logged into Advent with GitHub.
 
-`gradle assemble` to build but not test (tests will add up and start taking a long time).
+`gradle installDist` to build and setup the `ka` executable, but don't test.
 
-`gradle build` to build and test
+`gradle build` to build and test everything.
+
+`gradle test --tests '*2015-09*'` to test a specific class.
 
 `./ka --help` (Kotlin Advent) to run. More info in help text.
 
@@ -20,6 +22,13 @@ I logged into Advent with GitHub.
 ## Forks
 
 If you've forked this and want to write your own implementations, delete all the `YYYY-DD*`
-implementation files except one, and all the test files. Rename the one you kept to the day you want
-to start with and put your own input in there. Then update `Problem.kt` to just have that one day as
-the only instance.
+implementation files except one, and similarly all the test files except one. Rename the classes you
+kept to the day you want to start with. Put your own AoC input in the implementation file and the
+following in the test class body:
+```
+    // DO NOT DELETE. Part 1 placeholder. Run `./ka continue after verifying solution to populate.
+
+    // DO NOT DELETE. Part 2 placeholder. Run `./ka continue after verifying solution to populate.
+```
+
+Then update `Problem.kt` to just have that one day's part 1 as the only instance.

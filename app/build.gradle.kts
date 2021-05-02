@@ -48,5 +48,11 @@ tasks.test {
     maxParallelForks = Runtime.getRuntime().availableProcessors()
 }
 
+tasks.withType<Test> {
+    this.testLogging {
+        this.showStandardStreams = true
+    }
+}
+
 // Install ka CLI in app/build/install/ka
 tasks.build { finalizedBy(tasks.installDist) }
