@@ -29,22 +29,22 @@ class `2015-10` : Day {
         return grammar.parseToEnd(input)
     }
 
+    tailrec fun parse(input: String, numTimes: Int): String {
+        return if (numTimes == 0) input else parse(parse(input), numTimes - 1)
+    }
+
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
     override fun runPart1(input: String): String {
-        var result: String = input
-        repeat(40) { result = parse(result) }
-        return result.length.toString()
+        return parse(input, 40).length.toString()
     }
 
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
     override fun runPart2(input: String): String {
-        var result: String = input
-        repeat(50) { result = parse(result) }
-        return result.length.toString()
+        return parse(input, 50).length.toString()
     }
 
     override val defaultInput = """1113222113"""

@@ -15,6 +15,31 @@ class `2015-10-Test` {
         assertEquals(this, `2015-10`().runPart2(input))
     }
 
+    @Test fun test1billion() {
+        fun fib(index: Int): Int {
+            tailrec fun fib(index: Int, nMinus2: Int, nMinus1: Int): Int {
+                val n = nMinus2 + nMinus1
+                return if (index == 2) n else fib(index - 1, nMinus1, n)
+            }
+
+            return when (index) {
+                0,1 -> 1
+                else -> fib(index, 1, 1)
+            }
+        }
+
+        // correctness
+        assertEquals(1, fib(0))
+        assertEquals(1, fib(1))
+        assertEquals(2, fib(2))
+        assertEquals(3, fib(3))
+        assertEquals(5, fib(4))
+        assertEquals(8, fib(5))
+
+        // Doesn't stack overflow
+        fib(1_000_000_000)
+    }
+
     @Test fun testDefaultPart1() {
         assertEquals("252594", `2015-10`().runPart1())
     }
