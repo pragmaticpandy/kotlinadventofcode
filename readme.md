@@ -24,11 +24,13 @@ I logged into Advent with GitHub.
 If you've forked this and want to write your own implementations, delete all the `YYYY-DD*`
 implementation files except one, and similarly all the test files except one. Rename the classes you
 kept to the day you want to start with. Put your own AoC input in the implementation file and the
-following in the test class body:
-```
-    // DO NOT DELETE. Part 1 placeholder. Run `./ka continue after verifying solution to populate.
+following somewhere in the test class body:
+```kotlin
 
-    // DO NOT DELETE. Part 2 placeholder. Run `./ka continue after verifying solution to populate.
+    // DO NOT DELETE. Part 1 placeholder. To populate, verify solution on AoC then `./ka continue`
+
+    // DO NOT DELETE. Part 2 placeholder. To populate, verify solution on AoC then `./ka continue`
+
 ```
 
 Then update `Problem.kt` to just have that one day's part 1 as the only instance.
