@@ -32,6 +32,8 @@ dependencies {
 
     implementation("com.beust:klaxon:5.5")
 
+    implementation("com.google.guava:guava:31.0-jre")
+
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 
