@@ -1,6 +1,7 @@
 package kotlinadventofcode
 
 // DO NOT REMOVE ME. Just a lowly comment here trying to help with code generation.
+import kotlinadventofcode.`2015`.`2015-17`
 import kotlinadventofcode.`2015`.`2015-16`
 import kotlinadventofcode.`2015`.`2015-15`
 import kotlinadventofcode.`2015`.`2015-14`
@@ -54,7 +55,9 @@ enum class Problem(val day: Day, val part: Int): Day by day {
     `2015-15-1`(`2015-15`(), 1),
     `2015-15-2`(`2015-15`(), 2),
     `2015-16-1`(`2015-16`(), 1),
-    `2015-16-2`(`2015-16`(), 2);
+    `2015-16-2`(`2015-16`(), 2),
+    `2015-17-1`(`2015-17`(), 1),
+    `2015-17-2`(`2015-17`(), 2);
 
     fun run(): String {
         return if (part == 1) day.runPart1() else day.runPart2()
