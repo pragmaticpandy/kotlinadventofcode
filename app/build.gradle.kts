@@ -45,6 +45,7 @@ application {
     // Define the main class for the application.
     mainClass.set("kotlinadventofcode.AppKt")
     applicationName = "ka"
+    applicationDefaultJvmArgs = listOf("-Xms512m", "-Xmx32g")
 }
 
 tasks.test {
