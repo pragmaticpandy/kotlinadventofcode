@@ -195,8 +195,36 @@ import kotlinadventofcode.Day
 class `$yearKey-$dayKey` : Day {
 
     /**
+     * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
+     */
+    override fun runPart1(input: String): String {
+
+        /**
+         * Perhaps use a parser (see example below) or just use the lines directly like so:
+         * return input.lines().count { it == "what I'm looking for" }.toString()
+         */
+
+        throw Exception("$yearKey day $dayKey part 1 isn't yet implemented.")
+    }
+
+    /**
+     * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
+     */
+    override fun runPart2(input: String): String {
+
+        /**
+         * Perhaps use a parser (see example below) or just use the lines directly like so:
+         * return input.lines().count { it == "what I'm looking for" }.toString()
+         */
+
+        throw Exception("$yearKey day $dayKey part 2 isn't yet implemented.")
+    }
+
+    /**
      * Example parser. Parses multiple lines of pairs of positive int ranges with this format:
      * 12-39,492-1093
+     *
+     * If you want more examples, see the parser for 2022-11.
      */
     private fun parse(input: String): List<Pair<IntRange, IntRange>> {
         val grammar = object : Grammar<List<Pair<IntRange, IntRange>>>() {
@@ -224,32 +252,6 @@ class `$yearKey-$dayKey` : Day {
         }
 
         return grammar.parseToEnd(input)
-    }
-
-    /**
-     * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
-     */
-    override fun runPart1(input: String): String {
-
-        /**
-         * Perhaps use a parser (see example above) or just use the lines directly like so:
-         * return input.lines().count { it == "what I'm looking for" }.toString()
-         */
-
-        throw Exception("$yearKey day $dayKey part 1 isn't yet implemented.")
-    }
-
-    /**
-     * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
-     */
-    override fun runPart2(input: String): String {
-
-        /**
-         * Perhaps use a parser (see example above) or just use the lines directly like so:
-         * return input.lines().count { it == "what I'm looking for" }.toString()
-         */
-
-        throw Exception("$yearKey day $dayKey part 2 isn't yet implemented.")
     }
 
     override val defaultInput = ${"\"\"\""}$inputKey${"\"\"\""}
