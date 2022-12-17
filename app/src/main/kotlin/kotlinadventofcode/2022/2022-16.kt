@@ -5,20 +5,16 @@ import com.github.h0tk3y.betterParse.combinators.*
 import com.github.h0tk3y.betterParse.grammar.*
 import com.github.h0tk3y.betterParse.lexer.*
 import kotlinadventofcode.Day
-import java.math.BigInteger
-import java.time.Instant
 import java.util.PriorityQueue
 import kotlin.math.max
-import kotlin.comparisons.reverseOrder
 import kotlin.math.min
 
-val numMinutesWithElephant = 26
+const val numMinutesWithElephant = 26
 
 class `2022-16` : Day {
 
     override fun runPart1(input: String): String {
         val graph = Graph(parse(input))
-        println("min steps between valves with flow: ${graph.minStepsBetweenValvesWithFlow}")
 
         val priorityQueue: PriorityQueue<Plan> =
             PriorityQueue(1) { a: Plan, b: Plan ->
@@ -27,7 +23,6 @@ class `2022-16` : Day {
 
         priorityQueue.offer(Plan(listOf(Travel("AA"))))
         var maxPressureReleased = 0
-        var lastReportAt = Instant.now()
         while (priorityQueue.isNotEmpty()) {
             val plan = priorityQueue.poll()
             plan.getNextPlans(graph).forEach {
@@ -37,25 +32,21 @@ class `2022-16` : Day {
                     if (it.heuristic(graph) > maxPressureReleased) priorityQueue.offer(it)
                 }
             }
-
-            if (lastReportAt.plusMillis(1_000).isBefore(Instant.now())) {
-                println("queue size: ${priorityQueue.size}")
-                println("this item length ${plan.actions.size}")
-                lastReportAt = Instant.now()
-            }
         }
 
         return maxPressureReleased.toString()
     }
 
     /**
-     * Very slow.
+     * Very slow. Finds a solution that is likely to be best in a couple minutes, but it's not
+     * guaranteed to be the best one. Then it takes like 45 minutes total to verify that it actually
+     * got the best one.
+     * See previous commit for the commented/lots of println version for debugging.
+     * I think the way to go here for improvement is to actually model the cost as the valves that
+     * are shut, and then use dijkstra's
      */
     override fun runPart2(input: String): String {
-        var lastReportAt = Instant.now()
         val graph = Graph(parse(input))
-        println("min steps between valves with flow: ${graph.minStepsBetweenValvesWithFlow}")
-        println("longest path between valves: ${graph.longestShortestPath}")
 
         val priorityQueue: PriorityQueue<ElephantPlan> =
             PriorityQueue(1_000_000) { a: ElephantPlan, b: ElephantPlan ->
@@ -70,16 +61,6 @@ class `2022-16` : Day {
         val numValvesToPopulateForEach = 2
 
         val populateQueue = mutableListOf(ElephantPlan(listOf(Travel("AA")), listOf(Travel("AA"))))
-        var processedForPopulating = 0
-
-        fun factorial(num: Int): BigInteger {
-            return (1..num).map { it.toBigInteger() }.reduce { result, next -> result * next }
-        }
-
-        val totalCombinations = factorial(graph.valveIdsWithFlow.size) /
-            factorial(graph.valveIdsWithFlow.size - (numValvesToPopulateForEach * 2))
-
-        println("starting populate loop")
         while (populateQueue.isNotEmpty()) {
             val plan = populateQueue.removeFirst()
             for (myNextValve in graph.valveIdsWithFlow - plan.openedValves) {
@@ -99,20 +80,9 @@ class `2022-16` : Day {
                         populateQueue.add(newPlan)
                     }
 
-                    processedForPopulating++
-                    if (lastReportAt.plusMillis(1_000).isBefore(Instant.now())) {
-                        println("processed so far for populating: $processedForPopulating")
-                        println("queue size: ${populateQueue.size}")
-                        println("%.2f%%".format((processedForPopulating.toDouble() / totalCombinations.toDouble()) * 100))
-                        lastReportAt = Instant.now()
-                    }
                 }
             }
-
-
         }
-
-        println("Finished populating with $numValvesToPopulateForEach valves each.")
 
         var maxPressureReleased = 0
         while (priorityQueue.isNotEmpty()) {
@@ -127,14 +97,6 @@ class `2022-16` : Day {
                         priorityQueue.offer(it)
                     }
                 }
-            }
-
-            if (lastReportAt.plusMillis(1_000).isBefore(Instant.now())) {
-                println("queue size: ${priorityQueue.size}")
-                println("this plan has action lengths of mine: ${plan.myActions.size} and elephant: ${plan.elephantActions.size}")
-                println("this plan heuristic: ${plan.heuristic(graph)}")
-                println("best plan so far: $maxPressureReleased")
-                lastReportAt = Instant.now()
             }
         }
 
@@ -322,10 +284,6 @@ class `2022-16` : Day {
 
             minSteps
         }
-        val longestShortestPath by lazy {
-            shortestPaths.map { it.value.size }.max()
-        }
-
 
         fun getShortestPathFrom(pair: Pair<String, String>): List<Travel> {
             val a = valvesById[pair.first]!!

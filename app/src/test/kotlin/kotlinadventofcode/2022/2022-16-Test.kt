@@ -19,7 +19,9 @@ class `2022-16-Test` {
         assertEquals("1737", `2022-16`().runPart1())
     }
 
-    // DO NOT DELETE. Part 2 placeholder. To populate, verify solution on AoC then `./ka continue`
+    @Test fun testDefaultPart2() {
+        assertEquals("2216", `2022-16`().runPart2())
+    }
 
 
     @Test fun test1Example() {
