@@ -113,7 +113,7 @@ class `2022-17` : Day {
         }
 
         fun place(shape: Shape) {
-            var coords = shape.coords.map { it.x + 3.toBigInteger() by it.y + highestRockY() + 4.toBigInteger() }.toSet()
+            var coords = shape.coords.map { it.x + 3.toBigInteger() by it.y + height + 4.toBigInteger() }.toSet()
             while (true) {
                 if (jets[jetIndex] == Jet.LEFT) {
                     if (canMoveLeft(coords)) coords = coords.map { it.x - 1.toBigInteger() by it.y }.toSet()
@@ -142,10 +142,6 @@ class `2022-17` : Day {
 
         fun canMoveDown(coords: Set<Coord>): Boolean {
             return coords.map { it.x by it.y - 1.toBigInteger() }.all { !rocks.contains(it) && it.y > 0.toBigInteger() }
-        }
-
-        fun highestRockY(): BigInteger {
-            return if (rocks.isEmpty()) 0.toBigInteger() else rocks.maxOf { it.y }
         }
     }
 
