@@ -60,15 +60,10 @@ class `2023-02` : Day {
             val positiveIntRegex by regexToken("\\d+")
 
             val positiveInt by positiveIntRegex use { text.toInt() }
-            val color by (redLit or greenLit or blueLit) map {
-                when (it.text) {
-                    "red" -> Color.RED
-                    "green" -> Color.GREEN
-                    "blue" -> Color.BLUE
-                    else -> throw Exception("Unknown color: ${it.text}")
-                }
-            }
-
+            val red by redLit use { Color.RED }
+            val green by greenLit use { Color.GREEN }
+            val blue by blueLit use { Color.BLUE }
+            val color by red or green or blue
             val colorCount by (positiveInt and skip(spaceLit) and color) map { ColorCount(it.t2, it.t1) }
             val draw by separatedTerms(colorCount, commaLit and spaceLit) map { Draw(it) }
             val draws by separatedTerms(draw, semicolonLit and spaceLit)
