@@ -34,3 +34,12 @@ the following somewhere in the test class body:
 ```
 
 Then update `Problem.kt` to just have that one day's part 1 as the only instance.
+
+## Tactics index
+
+### Binary search
+* 2023-06
+
+### Recursive combinator
+Note that betterparse seems to sometimes require that the recursive parser be on the right side of an `and`.
+* 2023-06
