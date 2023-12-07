@@ -40,6 +40,10 @@ Then update `Problem.kt` to just have that one day's part 1 as the only instance
 ### Binary search
 * 2023-06
 
-### Recursive combinator
+### Parsing
+#### Recursive combinator
 Note that betterparse seems to sometimes require that the recursive parser be on the right side of an `and`.
 * 2023-06
+ 
+#### Parsing something n times
+* 2023-07
