@@ -32,7 +32,7 @@ class `2023-08` : Day {
      * * Every node that ends in A reaches a node that ends in Z, and the number of turns to get
      *   there is equal to the Z node's cycle length, and at that point the cycle begins.
      *
-     * Given all this, the solution is simple the LCM of all the cycle lengths.
+     * Given all this, the solution is simply the LCM of all the cycle lengths.
      */
     override fun runPart2(input: String): String {
         val (instructions, nodes) = parse(input)
