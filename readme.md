@@ -48,5 +48,5 @@ Then update `Problem.kt` to just have that one day's part 1 as the only instance
 Note that betterparse seems to sometimes require that the recursive parser be on the right side of an `and`.
 * 2023-06
  
-#### Parsing something n times
+#### Parsing something exactly n times
 * 2023-07
