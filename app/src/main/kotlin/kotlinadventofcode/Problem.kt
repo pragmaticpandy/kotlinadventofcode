@@ -2,6 +2,7 @@ package kotlinadventofcode
 
 // DO NOT REMOVE ME. Just a lowly comment here trying to help with code generation.
 import kotlinadventofcode.`2023`.`2023-11`
+import kotlinadventofcode.`2023`.`2023-10`
 import kotlinadventofcode.`2023`.`2023-09`
 import kotlinadventofcode.`2023`.`2023-08`
 import kotlinadventofcode.`2023`.`2023-07`
@@ -155,6 +156,8 @@ enum class Problem(val day: Day, val part: Int): Day by day {
     `2023-08-2`(`2023-08`(), 2),
     `2023-09-1`(`2023-09`(), 1),
     `2023-09-2`(`2023-09`(), 2),
+    `2023-10-1`(`2023-10`(), 1),
+    `2023-10-2`(`2023-10`(), 2),
     `2023-11-1`(`2023-11`(), 1),
     `2023-11-2`(`2023-11`(), 2);
 
