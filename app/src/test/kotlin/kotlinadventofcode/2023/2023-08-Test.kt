@@ -35,33 +35,13 @@ class `2023-08-Test` {
     @Test fun testCycleRPZ() {
         val (instructions, nodes) = `2023-08`().parse(`2023-08`().defaultInput)
         val nodesById = nodes.associateBy { it.id }
-        println("there are ${instructions.size} instructions")
         assertEquals(11_653.toBigInteger(), `2023-08`().getNumTurnsToAZ("RPZ", nodesById, instructions).first)
     }
 
     @Test fun testCycleZZZ() {
         val (instructions, nodes) = `2023-08`().parse(`2023-08`().defaultInput)
         val nodesById = nodes.associateBy { it.id }
-        println("there are ${instructions.size} instructions")
         assertEquals(19_783.toBigInteger(), `2023-08`().getNumTurnsToAZ("ZZZ", nodesById, instructions).first)
-    }
-
-    @Test fun testAllZCycles() {
-        val (instructions, nodes) = `2023-08`().parse(`2023-08`().defaultInput)
-        val nodesById = nodes.associateBy { it.id }
-        val nodeIdsEndingInZ = nodes.filter { it.id.endsWith("Z") }.map { it.id }
-        println("there are ${instructions.size} instructions")
-        val cycleLengths = nodeIdsEndingInZ.map { it to `2023-08`().getNumTurnsToAZ(it, nodesById, instructions) }
-        println("cycle lengths: ${cycleLengths.sortedBy { it.second.second }}")
-    }
-
-    @Test fun testAllACycles() {
-        val (instructions, nodes) = `2023-08`().parse(`2023-08`().defaultInput)
-        val nodesById = nodes.associateBy { it.id }
-        val nodeIdsEndingInA = nodes.filter { it.id.endsWith("A") }.map { it.id }
-        println("there are ${instructions.size} instructions")
-        val cycleLengths = nodeIdsEndingInA.map { it to `2023-08`().getNumTurnsToAZ(it, nodesById, instructions) }
-        println("cycle lengths: ${cycleLengths.sortedBy { it.second.second }}")
     }
 
     @Test fun testDefaultPart2() {
