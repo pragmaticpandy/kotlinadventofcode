@@ -33,6 +33,8 @@ dependencies {
 
     implementation("com.google.guava:guava:31.0-jre")
 
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 
