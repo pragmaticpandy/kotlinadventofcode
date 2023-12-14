@@ -46,6 +46,9 @@ Then update `Problem.kt` to just have that one day's part 1 as the only instance
 ### Parallel processing
 * 2023-12
 
+### Transpose matrix
+* 2023-13
+
 ### Parsing
 #### Recursive combinator
 Note that betterparse seems to sometimes require that the recursive parser be on the right side of an `and`.
