@@ -54,15 +54,22 @@ class `2023-13` : Day {
             }
 
             private fun getAllLeftReflectionLengths(): Set<Int> {
-                return xIndices.windowed(2).mapNotNull { window ->
-                    if (yIndices.all { y -> xIndices.all inner@{ distanceFromLine ->
-                        val left = get(Coord(window[0] - distanceFromLine, y)) ?: return@inner true
-                        val right = get(Coord(window[1] + distanceFromLine, y)) ?: return@inner true
-                        left == right
-                        }}) return@mapNotNull window[1]
+                return xIndices
+                    .windowed(2)
+                    .mapNotNull { if (isMirrorLine(it[0], it[1])) it[1] else null }
+                    .toSet()
+            }
 
-                    null
-                }.toSet()
+            private fun isMirrorLine(left: Int, right: Int): Boolean {
+                return yIndices.all { y -> isMirrorLine(left, right, y) }
+            }
+
+            private fun isMirrorLine(left: Int, right: Int, row: Int): Boolean {
+                return xIndices.all { distanceFromLine ->
+                    val leftTerrain = get(Coord(left - distanceFromLine, row)) ?: return@all true
+                    val rightTerrain = get(Coord(right + distanceFromLine, row)) ?: return@all true
+                    leftTerrain == rightTerrain
+                }
             }
 
             private fun getGridsWithOneFlip(): List<Grid> {
@@ -84,7 +91,7 @@ class `2023-13` : Day {
         }
 
         fun <T> List<List<T>>.transposed(): List<List<T>> {
-            val result = Array(this.firstOrNull()?.size?:0) { mutableListOf<T>() }
+            val result = Array(this.firstOrNull()?.size ?: 0) { mutableListOf<T>() }
             this.forEach { row ->
                 row.forEachIndexed { index, element ->
                     result[index].add(element)
