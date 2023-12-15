@@ -35,13 +35,11 @@ class `2023-14` : Day {
                 val seen = mutableMapOf<Platform, Int>()
                 var current = this
                 repeat(times) { i ->
-                    if (current in seen) {
-                        val cycleLength = seen[current]!! - i
+                    seen[current]?.let { firstSeenAt ->
+                        val cycleLength = firstSeenAt - i
                         val remainingCycles = (times - i) % cycleLength
-                        return seen.entries.first { it.value == seen[current]!! + remainingCycles}.key
-                    } else {
-                        seen += current to i
-                    }
+                        return seen.entries.first { it.value == firstSeenAt + remainingCycles }.key
+                    } ?: seen += current to i
 
                     current = current.cycled
                 }
