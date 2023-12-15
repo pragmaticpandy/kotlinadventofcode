@@ -62,7 +62,6 @@ Note that betterparse seems to sometimes require that the recursive parser be on
 * 2023-07
 
 ## Project TODOs
-* Kotlin native
 * Remove all the backtick class names
 * Remove comments from the template
 * In template, move example parser inside companion object
