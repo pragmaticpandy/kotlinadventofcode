@@ -46,8 +46,12 @@ Then update `Problem.kt` to just have that one day's part 1 as the only instance
 ### Parallel processing
 * 2023-12
 
-### Transpose matrix
+### Grid/matrix stuff
+#### Transpose
 * 2023-13
+
+#### Rotate
+* 2023-14
 
 ### Parsing
 #### Recursive combinator
