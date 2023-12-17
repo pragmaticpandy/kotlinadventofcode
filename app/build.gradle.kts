@@ -7,7 +7,7 @@
  */
 
 plugins {
-    kotlin("jvm") version "1.7.21" // Kotlin version to use
+    kotlin("jvm") version "1.9.21" // Kotlin version to use
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
@@ -34,6 +34,8 @@ dependencies {
     implementation("com.google.guava:guava:31.0-jre")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+
+    implementation("com.varabyte.kotter:kotter-jvm:1.1.1")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")

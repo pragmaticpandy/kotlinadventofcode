@@ -6,7 +6,6 @@ import com.github.h0tk3y.betterParse.grammar.*
 import com.github.h0tk3y.betterParse.lexer.*
 import kotlinadventofcode.Day
 import java.math.BigInteger
-import kotlin.random.Random
 
 class `2023-05` : Day {
 

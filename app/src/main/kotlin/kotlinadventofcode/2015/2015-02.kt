@@ -2,7 +2,6 @@
 package kotlinadventofcode.`2015`
 
 import kotlinadventofcode.Day
-import kotlin.math.min
 
 class `2015-02` : Day {
 

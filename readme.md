@@ -57,7 +57,7 @@ Then update `Problem.kt` to just have that one day's part 1 as the only instance
 #### Recursive combinator
 Note that betterparse seems to sometimes require that the recursive parser be on the right side of an `and`.
 * 2023-06
- 
+
 #### Parsing something exactly n times
 * 2023-07
 
@@ -66,3 +66,8 @@ Note that betterparse seems to sometimes require that the recursive parser be on
 * Remove comments from the template
 * In template, move example parser inside companion object
 * Automatically fetch input
+* inputs to files
+* Maybe framework support for directly running an experiment in order to benefit from UI
+    * at a minimum this would be running part 1 or 2 with an alternative input.
+    * but even better would be the ability to run something that isn't the defined part 1 or 2
+

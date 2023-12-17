@@ -4,7 +4,6 @@ package kotlinadventofcode.`2022`
 import com.github.h0tk3y.betterParse.combinators.*
 import com.github.h0tk3y.betterParse.grammar.*
 import com.github.h0tk3y.betterParse.lexer.*
-import com.github.h0tk3y.betterParse.utils.*
 import kotlinadventofcode.Day
 
 class `2022-05` : Day {

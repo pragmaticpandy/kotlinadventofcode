@@ -6,10 +6,8 @@ import com.github.h0tk3y.betterParse.parser.Parser
 import kotlinadventofcode.Day
 import kotlinadventofcode.`2015`.`2015-06`.Instruction.*
 import kotlin.math.max
-import kotlin.text.isDigit
 import com.github.h0tk3y.betterParse.combinators.*
 import com.github.h0tk3y.betterParse.grammar.parseToEnd
-import com.github.h0tk3y.betterParse.grammar.tryParseToEnd
 import com.github.h0tk3y.betterParse.lexer.*
 
 class `2015-06` : Day {

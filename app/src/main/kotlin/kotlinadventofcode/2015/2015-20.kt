@@ -2,7 +2,6 @@
 package kotlinadventofcode.`2015`
 
 import kotlinadventofcode.Day
-import kotlin.math.max
 
 class `2015-20` : Day {
 

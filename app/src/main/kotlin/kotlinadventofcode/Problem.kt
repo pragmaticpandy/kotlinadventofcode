@@ -61,7 +61,7 @@ import kotlinadventofcode.`2015`.`2015-01`
  * Using enum to get PicoCli help text and auto-complete benefits. Make sure to declare newest problems last because
  * that will be the default day.
  */
-enum class Problem(val day: Day, val part: Int): Day by day {
+enum class Problem(private val dayObj: Day, val part: Int): Day by dayObj {
     `2015-01-1`(`2015-01`(), 1),
     `2015-01-2`(`2015-01`(), 2),
     `2015-02-1`(`2015-02`(), 1),
@@ -173,7 +173,7 @@ enum class Problem(val day: Day, val part: Int): Day by day {
     `2023-15-1`(`2023-15`(), 1),
     `2023-15-2`(`2023-15`(), 2);
 
-    fun run(): String {
-        return if (part == 1) day.runPart1() else day.runPart2()
+    fun run(ui: UI): String {
+        return if (part == 1) dayObj.runPart1(ui) else dayObj.runPart2(ui)
     }
 }

@@ -2,7 +2,6 @@
 package kotlinadventofcode.`2022`
 
 import kotlinadventofcode.Day
-import kotlin.math.abs
 
 class `2022-12` : Day {
 

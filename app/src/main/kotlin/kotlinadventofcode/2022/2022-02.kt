@@ -2,7 +2,6 @@
 package kotlinadventofcode.`2022`
 
 import kotlinadventofcode.Day
-import java.util.*
 
 class `2022-02` : Day {
 

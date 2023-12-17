@@ -33,7 +33,12 @@ class App : Callable<Int> {
     var help = false
 
     override fun call(): Int {
-        println(problem.run())
+        Kotter().run(problem) { ui ->
+            val result = problem.run(ui)
+            println(result)
+            ui.setResult(result)
+        }
+
         return 0
     }
 }

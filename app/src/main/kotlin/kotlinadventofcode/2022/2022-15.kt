@@ -5,22 +5,25 @@ import com.github.h0tk3y.betterParse.combinators.*
 import com.github.h0tk3y.betterParse.grammar.*
 import com.github.h0tk3y.betterParse.lexer.*
 import kotlinadventofcode.Day
-import java.math.BigInteger
+import kotlinadventofcode.UI
+import kotlinadventofcode.forEach
 import kotlin.math.abs
 
 class `2022-15` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPart1(input: String, ui: UI): String {
         val targetY = 2000000
         val map: MutableMap<Coord, Item> = mutableMapOf()
-        parse(input).forEach { pair ->
+        parse(input).forEach(ui, "marking each sensor's known empties") { pair ->
             val sensor = pair.first
             val beacon = pair.second
             map[sensor] = Item.SENSOR
             map[beacon] = Item.BEACON
-            sensor.allCoordsAtMaxManhattanDistance(sensor.manhattanDistanceFrom(beacon), targetY).forEach {
-                if (!map.containsKey(it)) map[it] = Item.EMPTY
-            }
+            sensor
+                .allCoordsAtMaxManhattanDistance(sensor.manhattanDistanceFrom(beacon), targetY)
+                .forEach {
+                    if (!map.containsKey(it)) map[it] = Item.EMPTY
+                }
         }
 
         return map.filter { it.key.y == targetY }.filter { it.value == Item.EMPTY }.count().toString()
