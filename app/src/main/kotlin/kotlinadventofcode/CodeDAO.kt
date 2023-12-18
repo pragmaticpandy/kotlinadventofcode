@@ -191,67 +191,44 @@ import com.github.h0tk3y.betterParse.combinators.*
 import com.github.h0tk3y.betterParse.grammar.*
 import com.github.h0tk3y.betterParse.lexer.*
 import kotlinadventofcode.Day
+import kotlinadventofcode.UI
 
 class `$yearKey-$dayKey` : Day {
+    override val year: Int = $yearKey
+    override val day: Int = $dayKey
 
-    /**
-     * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
-     */
-    override fun runPart1(input: String): String {
-
-        /**
-         * Perhaps use a parser (see example below) or just use the lines directly like so:
-         * return input.lines().count { it == "what I'm looking for" }.toString()
-         */
-
-        throw Exception("$yearKey day $dayKey part 1 isn't yet implemented.")
+    override fun runPart1(input: String, ui: UI): String {
+        error("$yearKey day $dayKey part 1 isn't yet implemented.")
     }
 
-    /**
-     * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
-     */
-    override fun runPart2(input: String): String {
-
-        /**
-         * Perhaps use a parser (see example below) or just use the lines directly like so:
-         * return input.lines().count { it == "what I'm looking for" }.toString()
-         */
-
-        throw Exception("$yearKey day $dayKey part 2 isn't yet implemented.")
+    override fun runPart2(input: String, ui: UI): String {
+        error("$yearKey day $dayKey part 2 isn't yet implemented.")
     }
 
-    /**
-     * Example parser. Parses multiple lines of pairs of positive int ranges with this format:
-     * 12-39,492-1093
-     *
-     * If you want more examples, see the parser for 2022-11.
-     */
-    private fun parse(input: String): List<Pair<IntRange, IntRange>> {
-        val grammar = object : Grammar<List<Pair<IntRange, IntRange>>>() {
+    companion object {
 
-            /*
-             * Tokens must be declared by themselves—i.e. they must be a declared property in this object.
-             * Declaration order will be used in the case that multiple tokens match.
-             */
-            val newlineLit by literalToken("\n")
-            val commaLit by literalToken(",")
-            val dashLit by literalToken("-")
-            val positiveIntRegex by regexToken("\\d+")
+        /**
+         * Example parser. Parses multiple lines of pairs of positive int ranges with this format:
+         * 12-39,492-1093
+         */
+        private fun parse(input: String): List<Pair<IntRange, IntRange>> {
+            val grammar = object : Grammar<List<Pair<IntRange, IntRange>>>() {
 
-            /*
-             * Intermediate parsers.
-             */
-            val positiveInt by positiveIntRegex use { text.toInt() }
-            val range by (positiveInt and skip(dashLit) and positiveInt) map { it.t1..it.t2 }
-            val ranges by (range and skip(commaLit) and range) map { it.t1 to it.t2 }
+                // tokens
+                val newlineLit by literalToken("\n")
+                val commaLit by literalToken(",")
+                val dashLit by literalToken("-")
+                val positiveIntRegex by regexToken("\\d+")
 
-            /*
-             * Root parser.
-             */
-            override val rootParser by separatedTerms(ranges, newlineLit)
+                // parsers
+                val positiveInt by positiveIntRegex use { text.toInt() }
+                val range by (positiveInt and skip(dashLit) and positiveInt) map { it.t1..it.t2 }
+                val ranges by (range and skip(commaLit) and range) map { it.t1 to it.t2 }
+                override val rootParser by separatedTerms(ranges, newlineLit)
+            }
+
+            return grammar.parseToEnd(input)
         }
-
-        return grammar.parseToEnd(input)
     }
 
     override val defaultInput = ${"\"\"\""}$inputKey${"\"\"\""}
@@ -265,14 +242,6 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
 class `$yearKey-$dayKey-Test` {
-
-    private infix fun String.when1runsWith(input: String) {
-        assertEquals(this, `$yearKey-$dayKey`().runPart1(input))
-    }
-
-    private infix fun String.when2runsWith(input: String) {
-        assertEquals(this, `$yearKey-$dayKey`().runPart2(input))
-    }
 
     $testPart1PlaceholderComment
 

@@ -63,8 +63,7 @@ Note that betterparse seems to sometimes require that the recursive parser be on
 
 ## Project TODOs
 * Remove all the backtick class names
-* Remove comments from the template
-* In template, move example parser inside companion object
+    * this is going to be pretty hard without renaming all classes, because CodeDao assumes a lot about class name
 * Automatically fetch input
 * inputs to files
 * Maybe framework support for directly running an experiment in order to benefit from UI
