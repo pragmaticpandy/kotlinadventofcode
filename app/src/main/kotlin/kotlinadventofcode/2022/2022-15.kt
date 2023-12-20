@@ -5,16 +5,17 @@ import com.github.h0tk3y.betterParse.combinators.*
 import com.github.h0tk3y.betterParse.grammar.*
 import com.github.h0tk3y.betterParse.lexer.*
 import kotlinadventofcode.Day
-import kotlinadventofcode.UI
-import kotlinadventofcode.forEach
 import kotlin.math.abs
+import kotlinadventofcode.UI.UI
+import kotlinadventofcode.UI.forEach
 
 class `2022-15` : Day {
 
-    override fun runPart1(input: String, ui: UI): String {
+    context(UI)
+    override fun runPartOne(input: String): String {
         val targetY = 2000000
         val map: MutableMap<Coord, Item> = mutableMapOf()
-        parse(input).forEach(ui, "marking each sensor's known empties") { pair ->
+        parse(input).forEach("marking empties for each sensor") { pair ->
             val sensor = pair.first
             val beacon = pair.second
             map[sensor] = Item.SENSOR
@@ -29,7 +30,7 @@ class `2022-15` : Day {
         return map.filter { it.key.y == targetY }.filter { it.value == Item.EMPTY }.count().toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val coordinateRange = 0..4000000
         val sensors = parse(input).map { Sensor(it.first, it.second) }
         sensors

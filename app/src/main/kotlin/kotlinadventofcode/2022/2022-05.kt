@@ -62,7 +62,7 @@ class `2022-05` : Day {
     }
 
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         parse(input).forEach { move ->
             for (i in 1..move.num) {
                 stacksById[move.toStack]!!.push(stacksById[move.fromStack]!!.pop())
@@ -72,7 +72,7 @@ class `2022-05` : Day {
         return (1..9).map { stacksById[it]!!.pop() }.joinToString(separator = "")
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         parse(input).forEach { move ->
             val containers = ArrayDeque<Char>()
             for (i in 1..move.num) {

@@ -9,13 +9,13 @@ import java.math.BigInteger
 
 class `2023-05` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val (seeds, maps) = parseResourceMaps(input)
         val mapsBySource = maps.associateBy { it.source }
         return seeds.map { getLocationForSeed(it, mapsBySource) }.minOf { it.value }.toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val (seeds, maps) = parseResourceMaps(input)
         val mapsBySource = maps.associateBy { it.source }
 

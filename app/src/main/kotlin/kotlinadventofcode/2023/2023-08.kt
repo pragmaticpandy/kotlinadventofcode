@@ -10,7 +10,7 @@ import kotlin.rem
 
 class `2023-08` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val (instructions, nodes) = parse(input)
         val nodesById = nodes.associateBy { it.id }
         var currentNodeId = "AAA"
@@ -34,7 +34,7 @@ class `2023-08` : Day {
      *
      * Given all this, the solution is simply the LCM of all the cycle lengths.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val (instructions, nodes) = parse(input)
         val nodesById = nodes.associateBy { it.id }
         val nodesThatEndInZ = nodes.filter { it.id.endsWith("Z") }

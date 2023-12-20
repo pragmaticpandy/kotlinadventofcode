@@ -5,7 +5,7 @@ import kotlinadventofcode.Day
 
 class `2022-12` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val map = parse(input)
         return shortestPathLength(map.startCoord, map).toString()
     }
@@ -24,7 +24,7 @@ class `2022-12` : Day {
         return null
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val map = parse(input)
         return map.map.filter { it.value == 'a' }.keys
             .mapNotNull { shortestPathLength(it, map) }

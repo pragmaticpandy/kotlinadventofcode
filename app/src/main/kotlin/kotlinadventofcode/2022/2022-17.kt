@@ -9,7 +9,7 @@ import java.math.BigInteger
  */
 class `2022-17` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         fun <T> Sequence<T>.repeat() = sequence { while (true) yieldAll(this@repeat) }
         val tetris = Tetris(parse(input))
         sequenceOf(Shape.DASH, Shape.PLUS, Shape.L, Shape.BAR, Shape.SQUARE).repeat().take(2022).forEach {
@@ -19,7 +19,7 @@ class `2022-17` : Day {
         return tetris.height.toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val iterations = "1000000000000".toBigInteger()
         fun <T> Sequence<T>.repeat() = sequence { while (true) yieldAll(this@repeat) }
         val tetris = Tetris(parse(input))

@@ -9,11 +9,11 @@ import kotlin.math.pow
 
 class `2023-04` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return parseCards(input).sumOf { it.points }.toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val cards = parseCards(input)
         val cardsById = cards.associateBy { it.cardNum }
         val numCardsById = cards.associateTo(mutableMapOf()) { it.cardNum to 1 }

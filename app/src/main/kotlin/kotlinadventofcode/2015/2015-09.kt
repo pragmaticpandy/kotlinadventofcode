@@ -51,7 +51,7 @@ class `2015-09` : Day {
         return cities
     }
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return run(input, ::min)
     }
 
@@ -82,7 +82,7 @@ class `2015-09` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return run(input, ::max)
     }
 

@@ -5,11 +5,11 @@ import kotlinadventofcode.Day
 
 class `2023-03` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return Schematic(input.lines()).getPartNums().partNums.sum().toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return Schematic(input.lines()).getGearRatios().sum().toString()
     }
 

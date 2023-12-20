@@ -12,7 +12,7 @@ class `2016-01` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         var state = State(0, 0, CardinalDirection.NORTH)
         parseInstructions(input).forEach { state = state.getStateAfter(it) }
         return (abs(state.x) + abs(state.y)).toString()
@@ -21,7 +21,7 @@ class `2016-01` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         var state = State(0, 0, CardinalDirection.NORTH)
         val visited = mutableSetOf(0 to 0)
         parseInstructions(input).forEach { instruction ->

@@ -3,8 +3,6 @@ package kotlinadventofcode.`2015`
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotEquals
-import kotlin.test.assertNotNull
 
 private interface TestI {
     fun getS(): String
@@ -13,23 +11,23 @@ private interface TestI {
 class `2015-09-Test` {
 
     private infix fun String.when1runsWith(input: String) {
-        assertEquals(this, `2015-09`().runPart1(input))
+        assertEquals(this, `2015-09`().runPartOneNoUI(input))
     }
 
     private infix fun String.when2runsWith(input: String) {
-        assertEquals(this, `2015-09`().runPart2(input))
+        assertEquals(this, `2015-09`().runPartTwoNoUI(input))
     }
 
     @Test fun testDefaultPart1() {
-        assertEquals("251", `2015-09`().runPart1())
+        assertEquals("251", `2015-09`().runPartOneNoUI())
     }
 
     @Test fun testDefaultPart2() {
-        assertEquals("898", `2015-09`().runPart2())
+        assertEquals("898", `2015-09`().runPartTwoNoUI())
     }
 
     @Test fun testPart12() {
-        assertEquals("10", `2015-09`().runPart1("""a to b = 10"""))
+        assertEquals("10", `2015-09`().runPartOneNoUI("""a to b = 10"""))
     }
 
     @Test fun testPart13() {

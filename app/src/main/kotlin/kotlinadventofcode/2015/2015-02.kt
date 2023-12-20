@@ -15,11 +15,11 @@ class `2015-02` : Day {
         }
     }
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return parseBoxes(input).sumBy { it.paperRequired }.toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return parseBoxes(input).sumBy { it.ribbonRequried }.toString()
     }
 

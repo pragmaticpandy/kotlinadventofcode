@@ -8,14 +8,14 @@ import kotlinadventofcode.Day
 
 class `2023-13` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val grids = input.toGrids()
         val leftSum = grids.mapNotNull { it.leftReflectionLengths.firstOrNull() }.sum()
         val topSum = grids.mapNotNull { it.topReflectionLengths.firstOrNull() }.sum()
         return (leftSum + (topSum * 100)).toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val grids = input.toGrids()
         val leftSum = grids.mapNotNull {
             (it.withSmudgeFixed.leftReflectionLengths - it.leftReflectionLengths).firstOrNull()

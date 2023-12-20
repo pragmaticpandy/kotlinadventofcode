@@ -5,7 +5,7 @@ import kotlinadventofcode.Day
 
 class `2022-10` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         var result = 0
         var cycle = 1
         var x = 1
@@ -24,7 +24,7 @@ class `2022-10` : Day {
         return result.toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         var cycle = 1
         var x = 1
         var result = ""

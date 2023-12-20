@@ -8,11 +8,11 @@ import kotlin.test.assertEquals
 class `2023-12-Test` {
 
     private infix fun String.when1runsWith(input: String) {
-        assertEquals(this, `2023-12`().runPart1(input))
+        assertEquals(this, `2023-12`().runPartOneNoUI(input))
     }
 
     private infix fun String.when2runsWith(input: String) {
-        assertEquals(this, `2023-12`().runPart2(input))
+        assertEquals(this, `2023-12`().runPartTwoNoUI(input))
     }
 
     val exampleInput = """???.### 1,1,3
@@ -24,19 +24,19 @@ class `2023-12-Test` {
 
     @Test fun testPart1Example() {
         val algo2 = exampleInput.toRows().map { it.numValidArrangements }
-        assertEquals("21", `2023-12`().runPart1(exampleInput))
+        assertEquals("21", `2023-12`().runPartOneNoUI(exampleInput))
     }
 
     @Test fun testPart2Example() {
-        assertEquals("525152", `2023-12`().runPart2(exampleInput))
+        assertEquals("525152", `2023-12`().runPartTwoNoUI(exampleInput))
     }
 
     @Test fun testDefaultPart1() {
-        assertEquals("6852", `2023-12`().runPart1())
+        assertEquals("6852", `2023-12`().runPartOneNoUI())
     }
 
     @Test fun testDefaultPart2() {
-        assertEquals("8475948826693", `2023-12`().runPart2())
+        assertEquals("8475948826693", `2023-12`().runPartTwoNoUI())
     }
 
 }

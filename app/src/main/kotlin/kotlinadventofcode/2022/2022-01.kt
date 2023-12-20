@@ -10,7 +10,7 @@ class `2022-01` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         var currentCal = 0;
         var maxCal: Int? = null
         Scanner(input).use {
@@ -33,7 +33,7 @@ class `2022-01` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         var currentCal = 0;
         val queue = PriorityQueue<Int>()
         Scanner(input).use {

@@ -8,11 +8,11 @@ import kotlinadventofcode.Day
 
 class `2023-09` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return parseHistories(input).sumOf { it.nextValue }.toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return parseHistories(input).sumOf { it.previousValue }.toString()
     }
 

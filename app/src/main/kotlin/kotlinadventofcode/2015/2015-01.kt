@@ -4,7 +4,7 @@ import kotlinadventofcode.Day
 
 class `2015-01` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         var floor = 0
         for (char: Char in input) {
             when (char) {
@@ -17,7 +17,7 @@ class `2015-01` : Day {
         return floor.toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         var floor = 0
         for ((index, c) in input.withIndex()) {
             when (c) {

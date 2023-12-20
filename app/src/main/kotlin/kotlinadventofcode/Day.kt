@@ -1,54 +1,50 @@
 package kotlinadventofcode
 
-import java.math.BigInteger
+import kotlinadventofcode.UI.NoOpUI
+import kotlinadventofcode.UI.UI
 
 interface Day {
     val year: Int get() = this::class.simpleName!!.substring(0,4).toInt()
     val day: Int get() = this::class.simpleName!!.substring(5,7).toInt()
     val defaultInput: String
 
-    fun runPart1(input: String, ui: UI): String {
-        return runPart1(input)
+    context(UI)
+    fun runPartOne(input: String): String {
+        return runPartOneNoUI(input)
     }
 
-    fun runPart1(input: String): String {
-        return runPart1(input, object : UI {
-            override fun setResult(r: String) {}
-            override fun show(taskName: String, totalSteps: Int?, func: TaskScope.() -> Unit) {
-                show(taskName, totalSteps?.toBigInteger(), func)
-            }
-
-            override fun show(taskName: String, totalSteps: BigInteger?, func: TaskScope.() -> Unit) {
-                val taskScope = object : TaskScope {
-                    override fun did(amount: BigInteger) {}
-                }
-
-                taskScope.apply(func)
-            }
-        })
+    context(UI)
+    fun runPartOne(): String {
+        return runPartOne(defaultInput)
     }
 
-    fun runPart1(): String {
-        return runPart1(defaultInput)
+    context(UI)
+    fun runPartTwo(input: String): String {
+        return runPartTwoNoUI(input)
     }
 
-    fun runPart1(ui: UI): String {
-        return runPart1(defaultInput, ui)
+    context(UI)
+    fun runPartTwo(): String {
+        return runPartTwo(defaultInput)
     }
 
-    fun runPart2(input: String, ui: UI): String {
-        return runPart2(input)
+    fun runPartOneNoUI(input: String): String {
+        with (NoOpUI) {
+            return runPartOne(input)
+        }
     }
 
-    fun runPart2(input: String): String {
-        error("runPart2 not implemented.")
+    fun runPartOneNoUI(): String {
+        return runPartOneNoUI(defaultInput)
     }
 
-    fun runPart2(): String {
-        return runPart2(defaultInput)
+    fun runPartTwoNoUI(input: String): String {
+        with (NoOpUI) {
+            return runPartTwo(input)
+        }
     }
 
-    fun runPart2(ui: UI): String {
-        return runPart2(defaultInput, ui)
+    fun runPartTwoNoUI(): String {
+        return runPartTwoNoUI(defaultInput)
     }
 }

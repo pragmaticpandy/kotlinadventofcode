@@ -3,19 +3,17 @@ package kotlinadventofcode.`2023`
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
-import kotlinadventofcode.`2023`.`2023-11`
 import kotlinadventofcode.`2023`.`2023-11`.Companion.toUniverse
 import java.math.BigInteger
 
 class `2023-11-Test` {
 
     private infix fun String.when1runsWith(input: String) {
-        assertEquals(this, `2023-11`().runPart1(input))
+        assertEquals(this, `2023-11`().runPartOneNoUI(input))
     }
 
     private infix fun String.when2runsWith(input: String) {
-        assertEquals(this, `2023-11`().runPart2(input))
+        assertEquals(this, `2023-11`().runPartTwoNoUI(input))
     }
 
     @Test fun testGetGalaxies() {
@@ -25,7 +23,7 @@ class `2023-11-Test` {
     }
 
     @Test fun testDefaultPart1() {
-        assertEquals("9418609", `2023-11`().runPart1())
+        assertEquals("9418609", `2023-11`().runPartOneNoUI())
     }
 
     val exampleInput ="""...#......
@@ -52,7 +50,7 @@ class `2023-11-Test` {
     }
 
     @Test fun testDefaultPart2() {
-        assertEquals("593821230983", `2023-11`().runPart2())
+        assertEquals("593821230983", `2023-11`().runPartTwoNoUI())
     }
 
 }

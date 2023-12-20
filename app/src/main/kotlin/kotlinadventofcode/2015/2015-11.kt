@@ -40,17 +40,17 @@ class `2015-11` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override tailrec fun runPart1(input: String): String {
+    override tailrec fun runPartOneNoUI(input: String): String {
         val incremented = increment(input)
         return if (hasStraight(incremented) && hasNoBadChars(incremented) && hasPairs(incremented, 2)) incremented
-            else runPart1(incremented)
+            else runPartOneNoUI(incremented)
     }
 
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
-        return runPart1(runPart1(input))
+    override fun runPartTwoNoUI(input: String): String {
+        return runPartOneNoUI(runPartOneNoUI(input))
     }
 
     override val defaultInput = """hepxcrrq"""

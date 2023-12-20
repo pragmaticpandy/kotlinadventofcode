@@ -156,7 +156,7 @@ class CodeDAO(
                         if (problemId.part == 1) testPart1PlaceholderComment else testPart2PlaceholderComment,
                         """
 |@Test fun testDefaultPart${problemId.part.toString()}() {
-|        assertEquals("$expected", `${problemId.year}-${dayToString(problemId.day)}`().runPart${problemId.part.toString()}())
+|        assertEquals("$expected", `${problemId.year}-${dayToString(problemId.day)}`().runPart${if (problemId.part == 1) "One" else "Two"}NoUi())
 |    }
                         """.trimMargin())})
     }

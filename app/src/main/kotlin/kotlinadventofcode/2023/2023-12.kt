@@ -11,11 +11,11 @@ import java.math.BigInteger
 
 class `2023-12` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return run(input.toRows())
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return run(input.toRows().map { it.unfolded })
     }
 

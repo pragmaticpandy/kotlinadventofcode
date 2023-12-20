@@ -19,7 +19,7 @@ class `2015-20` : Day {
      * But, the number of calculations required per elf drops really quickly—e.g. only 1/100 of the
      * array needs to be updated on the 100th iteration.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val target = parse(input)
         val presents: Array<Int> = Array(target) { 0 }
         (1 until target).forEach { elf ->
@@ -35,7 +35,7 @@ class `2015-20` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val target = parse(input)
         val presents: Array<Int> = Array(target) { 0 }
         (1 until target).forEach { elf ->

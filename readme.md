@@ -61,6 +61,9 @@ Note that betterparse seems to sometimes require that the recursive parser be on
 #### Parsing something exactly n times
 * 2023-07
 
+## Bugs
+[Context cannot be set on data classes](https://youtrack.jetbrains.com/issue/KT-51395/IllegalStateException-Null-argument-in-ExpressionCodegen-for-parameter-VALUEPARAMETER-with-data-classes-and-context-receivers)
+
 ## Project TODOs
 * Remove all the backtick class names
     * this is going to be pretty hard without renaming all classes, because CodeDao assumes a lot about class name

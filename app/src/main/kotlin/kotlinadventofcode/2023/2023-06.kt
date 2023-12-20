@@ -11,14 +11,14 @@ import java.util.*
 
 class `2023-06` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return parseRecords(input)
             .map { record -> record.findWinningPerformanceRange().count }
             .reduce(BigInteger::times)
             .toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return parseSingleRecord(input).findWinningPerformanceRange().count.toString()
     }
 

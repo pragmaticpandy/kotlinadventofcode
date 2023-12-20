@@ -63,7 +63,7 @@ class `2015-14` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return parse(input).map { it.distanceAfter(2503) }.maxOrNull()?.toString()
             ?: throw Exception("No reindeer parsed.")
     }
@@ -87,7 +87,7 @@ class `2015-14` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         var states = parse(input).map { createReindeerStartState(it) }
         val scoreByReindeer = states.associateBy( { it.reindeer.name }, { 0 }).toMutableMap()
         for (i in 1..2503) {

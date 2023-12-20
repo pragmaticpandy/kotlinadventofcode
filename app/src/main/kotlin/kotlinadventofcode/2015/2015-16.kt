@@ -45,7 +45,7 @@ class `2015-16` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return parse(input)
             .filter(characteristicFilter("children", 3))
             .filter(characteristicFilter("cats", 7))
@@ -65,7 +65,7 @@ class `2015-16` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return parse(input)
             .filter(characteristicFilter("children", 3))
             .filter { !it.characteristics.containsKey("cats") || it.characteristics["cats"]!! > 7 }

@@ -3,24 +3,23 @@ package kotlinadventofcode.`2023`
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 
 class `2023-09-Test` {
 
     private infix fun String.when1runsWith(input: String) {
-        assertEquals(this, `2023-09`().runPart1(input))
+        assertEquals(this, `2023-09`().runPartOneNoUI(input))
     }
 
     private infix fun String.when2runsWith(input: String) {
-        assertEquals(this, `2023-09`().runPart2(input))
+        assertEquals(this, `2023-09`().runPartTwoNoUI(input))
     }
 
     @Test fun testDefaultPart1() {
-        assertEquals("1953784198", `2023-09`().runPart1())
+        assertEquals("1953784198", `2023-09`().runPartOneNoUI())
     }
 
     @Test fun testDefaultPart2() {
-        assertEquals("957", `2023-09`().runPart2())
+        assertEquals("957", `2023-09`().runPartTwoNoUI())
     }
 
 }

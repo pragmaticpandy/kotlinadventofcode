@@ -8,13 +8,13 @@ import kotlinadventofcode.Day
 
 class `2023-02` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return parseGames(input)
             .filter { it.possiblyContains(12, 13, 14) }
             .sumOf { it.id }.toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return parseGames(input).sumOf { it.powerOfMinimumRequired() }.toString()
     }
 

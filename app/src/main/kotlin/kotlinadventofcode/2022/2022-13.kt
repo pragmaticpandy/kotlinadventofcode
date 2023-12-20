@@ -10,14 +10,14 @@ import kotlin.math.min
 
 class `2022-13` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return parse(input)
             .mapIndexed { index, pair -> if (pair.first < pair.second) index + 1 else 0 }
             .sum()
             .toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         fun createDivider(num: Int) = ListNode(listOf(ListNode(listOf(IntNode(num)))))
         val divider2 = createDivider(2)
         val divider6 = createDivider(6)

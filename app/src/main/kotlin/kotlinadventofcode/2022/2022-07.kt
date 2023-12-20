@@ -23,11 +23,11 @@ class `2022-07` : Day {
 
     private data class File(val path: Path, override val size: Int) : FileSystemNode {}
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return getDirsByPath(input).values.map { it.size }.filter { it <= 100000 }.sum().toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val totalSize = 70000000
         val neededSize = 30000000
         val dirsByPath = getDirsByPath(input)

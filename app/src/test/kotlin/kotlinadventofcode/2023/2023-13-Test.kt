@@ -4,17 +4,16 @@ package kotlinadventofcode.`2023`
 import kotlinadventofcode.`2023`.`2023-13`.Companion.toGrids
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 
 class `2023-13-Test` {
 
     private infix fun String.when1runsWith(input: String) {
-        assertEquals(this, `2023-13`().runPart1(input))
+        assertEquals(this, `2023-13`().runPartOneNoUI(input))
     }
 
     private infix fun String.when2runsWith(input: String) {
-        assertEquals(this, `2023-13`().runPart2(input))
+        assertEquals(this, `2023-13`().runPartTwoNoUI(input))
     }
 
     val exampleInput = """#.##..##.
@@ -71,15 +70,15 @@ class `2023-13-Test` {
     }
 
     @Test fun testExamplePart2() {
-        assertEquals("400", `2023-13`().runPart2(exampleInput))
+        assertEquals("400", `2023-13`().runPartTwoNoUI(exampleInput))
     }
 
     @Test fun testDefaultPart1() {
-        assertEquals("30535", `2023-13`().runPart1())
+        assertEquals("30535", `2023-13`().runPartOneNoUI())
     }
 
     @Test fun testDefaultPart2() {
-        assertEquals("30844", `2023-13`().runPart2())
+        assertEquals("30844", `2023-13`().runPartTwoNoUI())
     }
 
 }

@@ -101,14 +101,14 @@ class `2015-07` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return parseInput(input)[WireId("a")]?.signal.toString()
     }
 
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
 
         val signalA: Int =
             parseInput(input)[WireId("a")]?.signal ?: throw Exception("WireId not in parsed map.")

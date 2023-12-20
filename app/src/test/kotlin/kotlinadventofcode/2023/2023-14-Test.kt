@@ -4,16 +4,15 @@ package kotlinadventofcode.`2023`
 import kotlinadventofcode.`2023`.`2023-14`.Companion.toPlatform
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 
 class `2023-14-Test` {
 
     private infix fun String.when1runsWith(input: String) {
-        assertEquals(this, `2023-14`().runPart1(input))
+        assertEquals(this, `2023-14`().runPartOneNoUI(input))
     }
 
     private infix fun String.when2runsWith(input: String) {
-        assertEquals(this, `2023-14`().runPart2(input))
+        assertEquals(this, `2023-14`().runPartTwoNoUI(input))
     }
 
     val exampleInput = """O....#....
@@ -39,11 +38,11 @@ O..#.OO...
 #....#...."""
 
     @Test fun testExamplePart1() {
-        assertEquals("136", `2023-14`().runPart1(exampleInput))
+        assertEquals("136", `2023-14`().runPartOneNoUI(exampleInput))
     }
 
     @Test fun testExamplePart2() {
-        assertEquals("64", `2023-14`().runPart2(exampleInput))
+        assertEquals("64", `2023-14`().runPartTwoNoUI(exampleInput))
     }
 
     @Test fun exampleTiltedNorth() {
@@ -51,11 +50,11 @@ O..#.OO...
     }
 
     @Test fun testDefaultPart1() {
-        assertEquals("105208", `2023-14`().runPart1())
+        assertEquals("105208", `2023-14`().runPartOneNoUI())
     }
 
     @Test fun testDefaultPart2() {
-        assertEquals("102943", `2023-14`().runPart2())
+        assertEquals("102943", `2023-14`().runPartTwoNoUI())
     }
 
 }

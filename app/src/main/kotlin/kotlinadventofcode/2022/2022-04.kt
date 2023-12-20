@@ -35,7 +35,7 @@ class `2022-04` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return parse(input).count {
             (it.first.contains(it.second.first) && it.first.contains(it.second.last)) ||
                 (it.second.contains(it.first.first) && it.second.contains(it.first.last))
@@ -45,7 +45,7 @@ class `2022-04` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return parse(input).count {
             it.first.intersect(it.second).isNotEmpty()
         }.toString()

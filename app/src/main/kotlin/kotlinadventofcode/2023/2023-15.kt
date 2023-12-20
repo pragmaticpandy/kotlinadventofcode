@@ -8,11 +8,11 @@ import kotlinadventofcode.Day
 
 class `2023-15` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return input.toInitSequence().sumOf { it.hash }.toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val boxes: Map<Int, Box> = (0..255).associateWith { Box(it) }
         input.toSteps().forEach {
             val box = boxes[it.hash]!!

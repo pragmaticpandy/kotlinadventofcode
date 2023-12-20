@@ -8,7 +8,7 @@ import kotlinadventofcode.Day
 
 class `2022-14` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val map: MutableMap<Coord, Solid> = mutableMapOf()
         parse(input).forEach { path ->
             path.windowed(2, 1).forEach { pair ->
@@ -36,7 +36,7 @@ class `2022-14` : Day {
         return map.values.filter { it is Sand }.size.toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val source = Coord(500, 0)
         val map = MapWithFloor(parse(input), source)
         var count = 0

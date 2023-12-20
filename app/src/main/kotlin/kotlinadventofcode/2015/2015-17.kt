@@ -28,7 +28,7 @@ class `2015-17` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
 
         val combinationsCache: MutableMap<Pair<List<Int>, Int>, BigInteger> = mutableMapOf()
         fun numCombinations(containerSizes: List<Int>, target: Int): BigInteger {
@@ -55,7 +55,7 @@ class `2015-17` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
 
         val containerSizes = parse(input)
 

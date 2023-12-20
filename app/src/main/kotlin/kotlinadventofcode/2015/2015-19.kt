@@ -88,7 +88,7 @@ class `2015-19` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val (replacements, molecule) = parse(input)
         return molecule.getAllNextMolecules(replacements).size.toString()
     }
@@ -105,7 +105,7 @@ class `2015-19` : Day {
      * solution uses the least number of replacements.
      * Here, we just randomly guess to find a path.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val (replacements, endMolecule) = parse(input)
         val startMolecule = Molecule("e")
 
@@ -113,7 +113,7 @@ class `2015-19` : Day {
         var numReplacements = 0
         while (molecule != startMolecule) {
             // If there are no possible replacements, just start over and try again.
-            molecule = molecule.getAllPreviousMolecules(replacements).randomOrNull() ?: return runPart2(input)
+            molecule = molecule.getAllPreviousMolecules(replacements).randomOrNull() ?: return runPartTwoNoUI(input)
             numReplacements++
         }
 

@@ -13,7 +13,7 @@ const val numMinutesWithElephant = 26
 
 class `2022-16` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val graph = Graph(parse(input))
 
         val priorityQueue: PriorityQueue<Plan> =
@@ -45,7 +45,7 @@ class `2022-16` : Day {
      * I think the way to go here for improvement is to actually model the cost as the valves that
      * are shut, and then use dijkstra's
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val graph = Graph(parse(input))
 
         val priorityQueue: PriorityQueue<ElephantPlan> =

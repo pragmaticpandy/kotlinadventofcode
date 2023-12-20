@@ -83,7 +83,7 @@ class `2015-13` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val effects = parse(input)
 
         // There are only 8 folks so we can just have all the permutations in memory.
@@ -96,7 +96,7 @@ class `2015-13` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val effects = parse(input).toMutableList()
         val me = PersonId("💩")
         effects.people().forEach {

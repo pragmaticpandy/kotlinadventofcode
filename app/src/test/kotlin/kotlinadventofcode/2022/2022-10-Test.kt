@@ -3,20 +3,19 @@ package kotlinadventofcode.`2022`
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 
 class `2022-10-Test` {
 
     private infix fun String.when1runsWith(input: String) {
-        assertEquals(this, `2022-10`().runPart1(input))
+        assertEquals(this, `2022-10`().runPartOneNoUI(input))
     }
 
     private infix fun String.when2runsWith(input: String) {
-        assertEquals(this, `2022-10`().runPart2(input))
+        assertEquals(this, `2022-10`().runPartTwoNoUI(input))
     }
 
     @Test fun testDefaultPart1() {
-        assertEquals("15220", `2022-10`().runPart1())
+        assertEquals("15220", `2022-10`().runPartOneNoUI())
     }
 
     @Test fun testDefaultPart2() {
@@ -26,7 +25,7 @@ class `2022-10-Test` {
 ###..#.....#...#....#.#..#..#.#....####.
 #.#..#....#....#....#.#..#..#.#....#..#.
 #..#.#....####.####.#..#.###..#....#..#.
-""", `2022-10`().runPart2())
+""", `2022-10`().runPartTwoNoUI())
     }
 
 }

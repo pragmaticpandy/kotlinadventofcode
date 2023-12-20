@@ -15,7 +15,7 @@ class `2015-04` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         var decimal: Int = 0
         do {
             decimal++
@@ -28,7 +28,7 @@ class `2015-04` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         var decimal: Int = 0
         do {
             decimal++

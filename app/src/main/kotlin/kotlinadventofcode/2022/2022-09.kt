@@ -79,7 +79,7 @@ class `2022-09` : Day {
         return grammar.parseToEnd(input)
     }
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val startCoord = Coord(0, 0)
         var headCoord = startCoord
         var tailCoord = startCoord
@@ -112,7 +112,7 @@ class `2022-09` : Day {
             .first()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val startCoord = Coord(0, 0)
         val coords: MutableMap<Int, Coord> = (0..9).associateWith { startCoord }.toMutableMap()
         val visitedBy9: MutableSet<Coord> = mutableSetOf(coords[9]!!)

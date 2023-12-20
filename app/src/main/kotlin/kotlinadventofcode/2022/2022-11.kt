@@ -9,11 +9,11 @@ import java.math.BigInteger
 
 class `2022-11` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return run(input, 20, divideByThree = true)
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return run(input, 10_000, divideByThree = false)
     }
 

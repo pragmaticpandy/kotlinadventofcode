@@ -8,7 +8,7 @@ class `2023-01` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return input.lines().sumOf {
             // just take the first and last character of each line
             (findFirstDigit(it).toString() + findLastDigit(it).toString()).toInt()
@@ -26,7 +26,7 @@ class `2023-01` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return input.lines().sumOf {
             // just take the first and last character of each line
             (findFirstDigit2(it).toString() + findLastDigit2(it).toString()).toInt()

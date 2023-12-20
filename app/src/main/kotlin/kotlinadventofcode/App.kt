@@ -3,15 +3,12 @@
  */
 package kotlinadventofcode
 
+import kotlinadventofcode.UI.runWithKotterUI
 import picocli.CommandLine
 import picocli.CommandLine.Command
 import picocli.CommandLine.Option
 import picocli.CommandLine.Parameters
 
-import java.io.File
-import java.math.BigInteger
-import java.nio.file.Files
-import java.security.MessageDigest
 import java.util.concurrent.Callable
 import kotlin.system.exitProcess
 
@@ -33,7 +30,7 @@ class App : Callable<Int> {
     var help = false
 
     override fun call(): Int {
-        Kotter().run(problem) { ui ->
+        runWithKotterUI(problem) { ui ->
             val result = problem.run(ui)
             println(result)
             ui.setResult(result)

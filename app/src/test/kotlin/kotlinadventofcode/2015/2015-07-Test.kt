@@ -3,14 +3,13 @@ package kotlinadventofcode.`2015`
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 
 class `2015-07-Test` {
     @Test fun testDefaultPart1() {
-        assertEquals("16076", `2015-07`().runPart1())
+        assertEquals("16076", `2015-07`().runPartOneNoUI())
     }
 
     @Test fun testDefaultPart2() {
-        assertEquals("2797", `2015-07`().runPart2())
+        assertEquals("2797", `2015-07`().runPartTwoNoUI())
     }
 }

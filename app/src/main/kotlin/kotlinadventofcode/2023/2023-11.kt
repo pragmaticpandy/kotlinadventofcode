@@ -10,11 +10,11 @@ import kotlin.math.abs
 
 class `2023-11` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return input.toUniverse().expandBy(2).galaxyDistances.reduce(BigInteger::add).toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return input.toUniverse().expandBy(1_000_000).galaxyDistances.reduce(BigInteger::add).toString()
     }
 

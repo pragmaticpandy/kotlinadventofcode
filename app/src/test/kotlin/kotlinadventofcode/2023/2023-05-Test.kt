@@ -3,19 +3,17 @@ package kotlinadventofcode.`2023`
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 import kotlinadventofcode.`2023`.`2023-05`.ResourceMap
-import kotlinadventofcode.`2023`.`2023-05`.Resource
 
 
 class `2023-05-Test` {
 
     private infix fun String.when1runsWith(input: String) {
-        assertEquals(this, `2023-05`().runPart1(input))
+        assertEquals(this, `2023-05`().runPartOneNoUI(input))
     }
 
     private infix fun String.when2runsWith(input: String) {
-        assertEquals(this, `2023-05`().runPart2(input))
+        assertEquals(this, `2023-05`().runPartTwoNoUI(input))
     }
 
     private val exampleInput = """seeds: 79 14 55 13
@@ -54,20 +52,20 @@ humidity-to-location map:
 
     @Test
     fun testExamplePart1() {
-        assertEquals("35", `2023-05`().runPart1(exampleInput))
+        assertEquals("35", `2023-05`().runPartOneNoUI(exampleInput))
     }
 
     @Test fun testDefaultPart1() {
-        assertEquals("424490994", `2023-05`().runPart1())
+        assertEquals("424490994", `2023-05`().runPartOneNoUI())
     }
 
     @Test
     fun testExamplePart2() {
-        assertEquals("46", `2023-05`().runPart2(exampleInput))
+        assertEquals("46", `2023-05`().runPartTwoNoUI(exampleInput))
     }
 
     @Test fun testDefaultPart2() {
-        assertEquals("15290096", `2023-05`().runPart2())
+        assertEquals("15290096", `2023-05`().runPartTwoNoUI())
     }
 
 

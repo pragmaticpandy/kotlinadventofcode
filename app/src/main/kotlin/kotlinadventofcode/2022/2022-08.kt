@@ -9,7 +9,7 @@ class `2022-08` : Day {
     /**
      * very hacky and not cleaned up
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val visiblePoints: MutableSet<Pair<Int, Int>> = mutableSetOf()
         var heightSoFar = -1
         input.lines().forEachIndexed { yCoord, line ->
@@ -72,7 +72,7 @@ class `2022-08` : Day {
     /**
      * very hacky and not cleaned up
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         var highestScore = -1
         val lines = input.lines()
         for (x in lines[0].indices) {

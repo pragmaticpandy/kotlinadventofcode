@@ -8,7 +8,7 @@ import kotlinadventofcode.Day
 
 class `2022-18` : Day {
 
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         return runPart1(parse(input).toSet())
     }
 
@@ -18,7 +18,7 @@ class `2022-18` : Day {
         }.toString()
     }
 
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         val coords = parse(input).toSet()
         val drop = Drop(coords)
         return runPart1(coords + drop.emptyCoordsInVolume.filter { drop.encapsulates(it) }.toSet())

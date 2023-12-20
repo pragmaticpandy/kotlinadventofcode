@@ -98,7 +98,7 @@ class `2015-15` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val totalIngredientAmount = 100
 
         /*
@@ -141,7 +141,7 @@ class `2015-15` : Day {
      * This was fun in that the part 1 hill climbing approach doesn't work at all. Instead, I had
      * to use the calorie and teaspoon targets to limit the search space.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
 
         /**
          * gets all recipes that exactly match the number of teaspoons and number of calories

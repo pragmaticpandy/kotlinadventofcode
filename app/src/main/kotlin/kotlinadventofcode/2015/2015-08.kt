@@ -36,7 +36,7 @@ class `2015-08` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart1(input: String): String {
+    override fun runPartOneNoUI(input: String): String {
         val codeLength = input.replace("\n", "").length
         val stringsLength = parse(input).sumBy { it.length }
         return (codeLength - stringsLength).toString()
@@ -45,7 +45,7 @@ class `2015-08` : Day {
     /**
      * After verifying your solution on the AoC site, run `./ka continue` to add a test for it.
      */
-    override fun runPart2(input: String): String {
+    override fun runPartTwoNoUI(input: String): String {
         return (input.count { it == '\\' || it == '"' } + 2 + (2 * input.count { it == '\n' }))
                 .toString()
     }

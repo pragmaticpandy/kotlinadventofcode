@@ -1,6 +1,7 @@
 package kotlinadventofcode
 
 // DO NOT REMOVE ME. Just a lowly comment here trying to help with code generation.
+import kotlinadventofcode.`2023`.`2023-18`
 import kotlinadventofcode.`2023`.`2023-15`
 import kotlinadventofcode.`2023`.`2023-14`
 import kotlinadventofcode.`2023`.`2023-13`
@@ -56,6 +57,7 @@ import kotlinadventofcode.`2015`.`2015-04`
 import kotlinadventofcode.`2015`.`2015-03`
 import kotlinadventofcode.`2015`.`2015-02`
 import kotlinadventofcode.`2015`.`2015-01`
+import kotlinadventofcode.UI.UI
 
 /**
  * Using enum to get PicoCli help text and auto-complete benefits. Make sure to declare newest problems last because
@@ -171,9 +173,13 @@ enum class Problem(private val dayObj: Day, val part: Int): Day by dayObj {
     `2023-14-1`(`2023-14`(), 1),
     `2023-14-2`(`2023-14`(), 2),
     `2023-15-1`(`2023-15`(), 1),
-    `2023-15-2`(`2023-15`(), 2);
+    `2023-15-2`(`2023-15`(), 2),
+    `2023-18-1`(`2023-18`(), 1),
+    `2023-18-2`(`2023-18`(), 2);
 
     fun run(ui: UI): String {
-        return if (part == 1) dayObj.runPart1(ui) else dayObj.runPart2(ui)
+        with(ui) {
+            return if (part == 1) dayObj.runPartOne() else dayObj.runPartTwo()
+        }
     }
 }
