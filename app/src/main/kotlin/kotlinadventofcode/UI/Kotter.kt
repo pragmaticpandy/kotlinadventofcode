@@ -138,13 +138,13 @@ fun runWithKotterUI(problem: Problem, program: (UI) -> Unit) = session(clearTerm
         p {
             vars.forEach { (key, value) ->
                 p {
-                    text(getIndent(1)); yellow { textLine(key.uppercase()) }
-                    text(getIndent(1)); text(value)
+                    yellow { textLine(key.uppercase()) }
+                    text(value)
                 }
             }
         }
         p {
-            result?.let { green { text("RESULT ") }; bold { text(it) } }
+            result?.let { green { textLine("RESULT") }; bold { text(it) } }
         }
     }.run{
         addTimer(1.seconds, repeat = true) {

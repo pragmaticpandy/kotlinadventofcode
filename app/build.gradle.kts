@@ -54,7 +54,7 @@ application {
 }
 
 tasks.test {
-    maxHeapSize = "16G"
+    maxHeapSize = "32G"
     maxParallelForks = Runtime.getRuntime().availableProcessors()
 }
 
