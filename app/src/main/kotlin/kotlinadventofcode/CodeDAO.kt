@@ -156,7 +156,7 @@ class CodeDAO(
                         if (problemId.part == 1) testPart1PlaceholderComment else testPart2PlaceholderComment,
                         """
 |@Test fun testDefaultPart${problemId.part.toString()}() {
-|        assertEquals("$expected", `${problemId.year}-${dayToString(problemId.day)}`().runPart${if (problemId.part == 1) "One" else "Two"}NoUi())
+|        assertEquals("$expected", `${problemId.year}-${dayToString(problemId.day)}`().runPart${if (problemId.part == 1) "One" else "Two"}NoUI())
 |    }
                         """.trimMargin())})
     }
@@ -191,17 +191,19 @@ import com.github.h0tk3y.betterParse.combinators.*
 import com.github.h0tk3y.betterParse.grammar.*
 import com.github.h0tk3y.betterParse.lexer.*
 import kotlinadventofcode.Day
-import kotlinadventofcode.UI
+import kotlinadventofcode.UI.UI
 
 class `$yearKey-$dayKey` : Day {
     override val year: Int = $yearKey
     override val day: Int = $dayKey
 
-    override fun runPart1(input: String, ui: UI): String {
+    context(UI)
+    override fun runPartOne(input: String): String {
         error("$yearKey day $dayKey part 1 isn't yet implemented.")
     }
 
-    override fun runPart2(input: String, ui: UI): String {
+    context(UI)
+    override fun runPartTwo(input: String): String {
         error("$yearKey day $dayKey part 2 isn't yet implemented.")
     }
 
